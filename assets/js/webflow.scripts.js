@@ -5,10 +5,10 @@
 /*---------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
-  const splideElement = document.querySelector('.splide');
+  const splideElement = document.querySelector('#slider_logoCarousel');
 
   if (splideElement) {
-    new Splide('.splide', {
+    new Splide('#slider_logoCarousel', {
       type: 'loop',
       drag: 'free',
       gap: '2rem',
