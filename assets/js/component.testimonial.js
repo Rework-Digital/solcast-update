@@ -7,16 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (splideElement) {
     new Splide('#splide__testimonial', {
-      type: 'loop',
+      type: 'slide',
       drag: 'free',
       gap: '2rem',
-      autoWidth: true,
+      perPage: 3,
+      perMove: 1,
+      snap: true,
+      autoWidth: false,
+      autoplay: true,
+      interval: 2000,
+      pagination: true,
       pauseOnHover: true,
       pauseOnFocus: true,
       focusableNodes: 'img',
-      autoScroll: {
-        speed: 10,
-      },
       reducedMotion: {
         speed: 0,
         autoplay: 'pause',
