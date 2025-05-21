@@ -14,7 +14,7 @@ $(".slider-main_component").each(function (index) {
     const swiper = new Swiper($(this).find(".swiper")[0], {
       speed: sliderDuration,
       loop: loopMode,
-      autoHeight: false,
+      autoHeight: true,
       followFinger: true,
       freeMode: false,
       slideToClickedSlide: false,
@@ -35,13 +35,13 @@ $(".slider-main_component").each(function (index) {
         },
         // tablet
         768: {
-          slidesPerView: 1,
+          slidesPerView: 2,
           spaceBetween: "4%"
         },
         // desktop
         992: {
-          slidesPerView: 2,
-          spaceBetween: "3%"
+          slidesPerView: 3,
+          spaceBetween: "2%"
         }
       },
       navigation: {
