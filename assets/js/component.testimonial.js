@@ -14,7 +14,7 @@ $(".slider-main_component").each(function (index) {
     const swiper = new Swiper($(this).find(".swiper")[0], {
       speed: sliderDuration,
       loop: loopMode,
-      autoHeight: true,
+      autoHeight: false,
       followFinger: true,
       freeMode: false,
       slideToClickedSlide: false,
