@@ -34,4 +34,4 @@
           gap: '12px',
         }
       }
-    }).mount(window.splide.Extensions);
+    }).mount();

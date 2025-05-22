@@ -14,4 +14,4 @@
         speed: 0,
         autoplay: 'pause',
       }
-    }).mount(window.splide.Extensions);
+    }).mount();
