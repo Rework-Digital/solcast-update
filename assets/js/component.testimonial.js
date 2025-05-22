@@ -25,27 +25,25 @@ export default function initTestimonial() {
     },
   }).mount();
 
-  // Equalize heights to the tallest slide
+  // Equalize heights minus 1px
   const equalizeHeights = () => {
     const slides = document.querySelectorAll(`${selector} .splide__slide`);
     let maxH = 0;
 
-    // reset any previous inline heights
+    // reset any previous inline heights and find tallest
     slides.forEach(slide => {
       slide.style.height = 'auto';
       maxH = Math.max(maxH, slide.offsetHeight);
     });
 
-    // set all slides to that max height
+    // apply (maxH - 1px) to all
+    const targetH = Math.max(0, maxH - 1);
     slides.forEach(slide => {
-      slide.style.height = `${maxH}px`;
+      slide.style.height = `${targetH}px`;
     });
   };
 
-  // Run on mount, update (e.g. after move), and on resize
   splide.on('mounted updated', equalizeHeights);
   window.addEventListener('resize', equalizeHeights);
-
-  // Immediately equalize once more in case images load late
-  window.setTimeout(equalizeHeights, 1000);
+  setTimeout(equalizeHeights, 1000);
 }
