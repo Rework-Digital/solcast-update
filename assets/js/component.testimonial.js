@@ -7,7 +7,7 @@ export default function initTestimonial() {
     perMove       : 1,
     gap           : '22px',
     speed         : 600,
-    autoplay      : true,
+    autoplay      : false,
     interval      : 8000,
     pauseOnHover  : true,
     pauseOnFocus  : true,
