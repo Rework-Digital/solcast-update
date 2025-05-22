@@ -23,29 +23,35 @@ export default function initTestimonial() {
       767: { perPage: 1, gap: '16px' },
       479: { perPage: 1, gap: '12px' },
     },
-  }).mount();
+  });
+
+  // **Progress bar setup**
+  const bar = splide.root.querySelector('.my-slider-progress-bar');
+
+  splide.on('mounted move', () => {
+    const end = splide.Components.Controller.getEnd() + 1;
+    const ratio = (splide.index + 1) / end;
+    bar.style.width = `${100 * ratio}%`;
+  });
+
+  splide.mount();
 
   // Equalize heights to the tallest slide
   const equalizeHeights = () => {
     const slides = document.querySelectorAll(`${selector} .splide__slide`);
     let maxH = 0;
 
-    // reset any previous inline heights
     slides.forEach(slide => {
       slide.style.height = 'auto';
       maxH = Math.max(maxH, slide.offsetHeight);
     });
 
-    // set all slides to that max height
     slides.forEach(slide => {
       slide.style.height = `${maxH}px`;
     });
   };
 
-  // Run on mount, update (e.g. after move), and on resize
   splide.on('mounted updated', equalizeHeights);
   window.addEventListener('resize', equalizeHeights);
-
-  // Immediately equalize once more in case images load late
   window.setTimeout(equalizeHeights, 1000);
 }
