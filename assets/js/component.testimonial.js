@@ -3,10 +3,10 @@
 /*------------------------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
-  const splideElement = document.querySelector('#splide__testimonial');
+  const splideElement = document.querySelector('#slider_testimonial');
 
   if (splideElement) {
-    new Splide('#splide__testimonial', {
+    new Splide('#slider_testimonial', {
       perPage: 3,
       perMove: 1,
       focus: 0, // 0 = left and 'center' = center
