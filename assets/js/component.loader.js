@@ -14,7 +14,7 @@
   const splideElement = document.querySelector('#slider_logocarousel');
 
   if (splideElement) {
-    new Splide('.slider_logocarousel', {
+    new Splide('#slider_logocarousel', {
       type: 'loop',
       drag: 'free',
       gap: '2rem',
