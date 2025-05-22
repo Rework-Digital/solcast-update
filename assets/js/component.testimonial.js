@@ -1,31 +1,30 @@
 // component.testimonial.js
 export default function initTestimonial() {
   console.log('[testimonial] init');
-  new Splide('#slider_testimonial', {
-    type          : 'loop',   // or 'loop' if you want it to wrap
-    perPage       : 3,
-    perMove       : 1,
-    gap           : '22px',
-    speed         : 600,
-    autoplay      : true,
-    interval      : 12000,
-    pauseOnHover  : true,
-    pauseOnFocus  : true,
-    pagination    : false,
-    drag          : 'free',
-    snap          : true,
-    trimSpace     : false,
-    autoHeight    : false,
-    updateOnMove  : true,
-    breakpoints: {
+
+  const selector = '#slider_testimonial';
+  const splide = new Splide(selector, {
+    type        : 'loop',
+    perPage     : 3,
+    perMove     : 1,
+    gap         : '22px',
+    autoplay    : true,
+    interval    : 6000,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    pagination  : false,
+    drag        : 'free',
+    snap        : true,
+    trimSpace   : true,
+    speed       : 600,
+    breakpoints : {
       991: { perPage: 2, gap: '22px' },
       767: { perPage: 1, gap: '16px' },
       479: { perPage: 1, gap: '12px' },
     },
-  }).mount(); 
-}
+  }).mount();
 
-// Equalize heights to the tallest slide
+  // Equalize heights to the tallest slide
   const equalizeHeights = () => {
     const slides = document.querySelectorAll(`${selector} .splide__slide`);
     let maxH = 0;
