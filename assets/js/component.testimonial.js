@@ -11,6 +11,8 @@ export default function initTestimonial() {
     speed            : 600,
     dragAngleThreshold: 30,
     autoWidth        : false,
+    autoPlay         : true,
+    setInterval      : 2000,
     rewind           : false,
     waitForTransition: false,
     updateOnMove     : true,
