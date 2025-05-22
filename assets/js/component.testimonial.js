@@ -1,11 +1,6 @@
 /*------------------------------*/
 /* Testimonial Slider Settings  */
 /*------------------------------*/
-
-document.addEventListener('DOMContentLoaded', () => {
-  const splideElement = document.querySelector('#slider_testimonial');
-
-  if (splideElement) {
     new Splide('#slider_testimonial', {
       perPage: 3,
       perMove: 1,
@@ -40,5 +35,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     }).mount(window.splide.Extensions);
-  }
-});
