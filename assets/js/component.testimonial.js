@@ -21,5 +21,5 @@ export default function initTestimonial() {
       767: { perPage: 1, gap: '16px' },
       479: { perPage: 1, gap: '12px' },
     },
-  }).mount();
+  }).mount(); 
 }
