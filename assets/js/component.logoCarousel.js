@@ -1,5 +1,4 @@
 // splide-logo-settings.js
- if (splideElement) {
     new Splide('#slider_logoCarousel', {
       type: 'loop',
       drag: 'free',
@@ -16,4 +15,3 @@
         autoplay: 'pause',
       }
     }).mount(window.splide.Extensions);
-  };
