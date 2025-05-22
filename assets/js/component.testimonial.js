@@ -17,6 +17,7 @@ export default function initTestimonial() {
     snap        : true,
     trimSpace   : true,
     speed       : 600,
+    arrows      : true,
     breakpoints : {
       991: { perPage: 2, gap: '22px' },
       767: { perPage: 1, gap: '16px' },
