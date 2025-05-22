@@ -9,6 +9,7 @@ export default function initLogoCarousel() {
     pauseOnHover  : true,
     pauseOnFocus  : true,
     focusableNodes: 'img',
+    arrows        : false,
     autoScroll    : { speed: 0.8 },
     reducedMotion : { speed: 0, autoplay: 'pause' },
   }).mount(window.splide.Extensions);
