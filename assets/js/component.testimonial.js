@@ -7,7 +7,7 @@
       focus: 0, // 0 = left and 'center' = center
       type: 'slide', // 'loop' or 'slide'
       gap: '22px', // space between slides
-      arrows: slider, // 'slider' or false
+      //arrows: slider, // 'slider' or false
       pagination: false, // 'slider' or false
       speed : 600, // transition speed in miliseconds
       dragAngleThreshold: 30, // default is 30
