@@ -11,10 +11,10 @@
 
 
   document.addEventListener('DOMContentLoaded', () => {
-  const splideElement = document.querySelector('.splide');
+  const splideElement = document.querySelector('#slider_logocarousel');
 
   if (splideElement) {
-    new Splide('.splide', {
+    new Splide('.slider_logocarousel', {
       type: 'loop',
       drag: 'free',
       gap: '2rem',
