@@ -25,12 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
       breakpoints: {
         991: {
           // Tablet
-          perPage: 2.5,
+          perPage: 2,
           gap: '22px',
         },
         767: {
           // Mobile Landscape
-          perPage: 1.5,
+          perPage: 1,
           gap: '16px',
         },
         479: {
