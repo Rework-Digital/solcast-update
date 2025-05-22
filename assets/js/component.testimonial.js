@@ -15,6 +15,7 @@ export default function initTestimonial() {
     drag          : 'free',
     snap          : true,
     trimSpace     : true,
+    autoHeight    : false,
     breakpoints: {
       991: { perPage: 2, gap: '22px' },
       767: { perPage: 1, gap: '16px' },
