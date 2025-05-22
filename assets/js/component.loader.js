@@ -1,18 +1,17 @@
-/*---------------*/
-/* Splide Loader */
-/*---------------*/
+// component.loader.js
+document.addEventListener('DOMContentLoaded', () => {
+  if (!document.querySelector('#slider_logoCarousel')) return;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    // Only import & run the init script if the carousel container exists
-    if (document.querySelector('#slider_logoCarousel')) {
-      import('./component.logoCarousel.js')
-      .then(module => {
-      // assume module.default or module.initLogoCarousel runs the init
+  // Build a URL relative to this module's location:
+  const moduleUrl = new URL('./component.logoCarousel.js', import.meta.url);
+
+  import(moduleUrl)
+    .then(module => {
+      // If your carousel file exports a default init function:
       module.default?.();
       console.log('[loader] logoCarousel module loaded');
     })
-    .catch(err => console.error('[loader] failed to load logoCarousel:', err));
-}
-  });
-
-
+    .catch(err => {
+      console.error('[loader] failed to load logoCarousel:', err);
+    });
+});
