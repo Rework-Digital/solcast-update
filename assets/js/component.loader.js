@@ -35,7 +35,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   console.group('[Splide Logo Carousel] Init');
-  const selector = '#slider_logocarousel';
+  const selector = '#slider_logoCarousel';
   const splideElement = document.querySelector(selector);
 
   if (!splideElement) {
