@@ -11,7 +11,7 @@ export default function initLogoCarousel() {
     focusableNodes: 'img',
     arrows        : false,
     pagination    : false,
-    autoScroll    : { speed: 0.8 },
+    autoScroll    : { speed: 0.6 },
     reducedMotion : { speed: 0, autoplay: 'pause' },
   }).mount(window.splide.Extensions);
 }
