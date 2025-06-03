@@ -19,4 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('#slider_testimonial')) {
     loadModule('component.testimonial.js', 'testimonial');
   }
+
+  if (document.querySelector('.script_loader-counter')) {
+    loadModule('component.counter.js', 'counter');
+  }
 });
