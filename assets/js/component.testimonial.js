@@ -35,23 +35,4 @@ export default function initTestimonial() {
   });
 
   splide.mount();
-
-  // // Equalize heights to the tallest slide
-  // const equalizeHeights = () => {
-  //   const slides = document.querySelectorAll(`${selector} .splide__slide`);
-  //   let maxH = 0;
-
-  //   slides.forEach(slide => {
-  //     slide.style.height = 'auto';
-  //     maxH = Math.max(maxH, slide.offsetHeight);
-  //   });
-
-  //   slides.forEach(slide => {
-  //     slide.style.height = `${maxH}px`;
-  //   });
-  // };
-
-  // splide.on('mounted updated', equalizeHeights);
-  // window.addEventListener('resize', equalizeHeights);
-  // window.setTimeout(equalizeHeights, 1000);
 }
