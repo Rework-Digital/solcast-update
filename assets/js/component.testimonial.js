@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+// document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".testimonial-slider_component").forEach((component) => {
     const cmsWrap = component.querySelector(".swiper");
     if (!cmsWrap) return;
@@ -37,4 +37,3 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
   });
-});
