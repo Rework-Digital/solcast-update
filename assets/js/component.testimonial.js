@@ -4,15 +4,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!cmsWrap) return;
 
     const swiper = new Swiper(cmsWrap, {
+    	autoplay: {
+    		delay: 4000,
+        disableOnInteraction: false,
+      	pauseOnMouseEnter: true,
+      },
       slidesPerView: "auto",
       followFinger: true,
       freeMode: false,
       slideToClickedSlide: false,
       centeredSlides: false,
       autoHeight: false,
-      speed: 500,
+      speed: 450,
       slideActiveClass: "is-active",
       slideDuplicateActiveClass: "is-active",
+
       mousewheel: {
         forceToAxis: true,
       },
@@ -23,6 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
       navigation: {
         nextEl: component.querySelector(".testimonial-slider_btn_element.is-next"),
         prevEl: component.querySelector(".testimonial-slider_btn_element.is-prev"),
+      },
+      pagination: {
+        el: component.querySelector(".testimonial-slider_bullet_wrap"),
+        bulletActiveClass: "is-active",
+        bulletClass: "testimonial-slider_bullet_item",
+        bulletElement: "button",
+        clickable: true,
       },
       scrollbar: {
         el: component.querySelector(".testimonial-slider_draggable_wrap"),
