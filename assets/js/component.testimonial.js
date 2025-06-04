@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
       speed: 450,
       slideActiveClass: "is-active",
       slideDuplicateActiveClass: "is-active",
-
       mousewheel: {
         forceToAxis: true,
       },
@@ -29,13 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
       navigation: {
         nextEl: component.querySelector(".testimonial-slider_btn_element.is-next"),
         prevEl: component.querySelector(".testimonial-slider_btn_element.is-prev"),
-      },
-      pagination: {
-        el: component.querySelector(".testimonial-slider_bullet_wrap"),
-        bulletActiveClass: "is-active",
-        bulletClass: "testimonial-slider_bullet_item",
-        bulletElement: "button",
-        clickable: true,
       },
       scrollbar: {
         el: component.querySelector(".testimonial-slider_draggable_wrap"),
