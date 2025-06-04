@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.logoCarousel.js', 'logoCarousel');
   }
 
-  if (document.querySelector('.testimonial-slider_component')) {
-    loadModule('component.testimonial.js', 'testimonial');
-  }
+  // if (document.querySelector('.testimonial-slider_component')) {
+  //   loadModule('component.testimonial.js', 'testimonial');
+  // }
 
   if (document.querySelector('.script_loader-counter')) {
     loadModule('component.counter.js', 'counter');
