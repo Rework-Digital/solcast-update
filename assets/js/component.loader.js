@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.logoCarousel.js', 'logoCarousel');
   }
 
-  if (document.querySelector('#slider_testimonial')) {
+  if (document.querySelector('.testimonial-slider_component')) {
     loadModule('component.testimonial.js', 'testimonial');
   }
 
