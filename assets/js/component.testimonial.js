@@ -3,11 +3,11 @@ document.querySelectorAll(".testimonial-slider_component").forEach((component) =
   if (!cmsWrap) return;
 
   const swiper = new Swiper(cmsWrap, {
-    // autoplay: {
-    //   delay: 4000,
-    //   disableOnInteraction: false,
-    //   pauseOnMouseEnter: true,
-    // },
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
     slidesPerView: "auto",
     followFinger: true,
     freeMode: false,
