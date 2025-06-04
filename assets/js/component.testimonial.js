@@ -1,38 +1,35 @@
-// component.testimonial.js
-export default function initTestimonial() {
-  console.log('[testimonial] init');
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".testimonial-slider_component").forEach((component) => {
+    const cmsWrap = component.querySelector(".swiper");
+    if (!cmsWrap) return;
 
-  const selector = '#slider_testimonial';
-  const splide = new Splide(selector, {
-    type        : 'loop',
-    perPage     : 3,
-    perMove     : 1,
-    gap         : '22px',
-    autoplay    : true,
-    interval    : 6000,
-    pauseOnHover: true,
-    pauseOnFocus: true,
-    pagination  : false,
-    drag        : 'free',
-    snap        : true,
-    trimSpace   : true,
-    speed       : 600,
-    arrows      : true,
-    breakpoints : {
-      991: { perPage: 2, gap: '22px' },
-      767: { perPage: 1, gap: '16px' },
-      479: { perPage: 1, gap: '12px' },
-    },
+    const swiper = new Swiper(cmsWrap, {
+      slidesPerView: "auto",
+      followFinger: true,
+      freeMode: false,
+      slideToClickedSlide: false,
+      centeredSlides: false,
+      autoHeight: false,
+      speed: 500,
+      slideActiveClass: "is-active",
+      slideDuplicateActiveClass: "is-active",
+      mousewheel: {
+        forceToAxis: true,
+      },
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+      },
+      navigation: {
+        nextEl: component.querySelector(".testimonial-slider_btn_element.is-next"),
+        prevEl: component.querySelector(".testimonial-slider_btn_element.is-prev"),
+      },
+      scrollbar: {
+        el: component.querySelector(".testimonial-slider_draggable_wrap"),
+        draggable: true,
+        dragClass: "testimonial-slider_draggable_handle",
+        snapOnRelease: true,
+      },
+    });
   });
-
-  // **Progress bar setup**
-  const bar = splide.root.querySelector('.my-slider-progress-bar');
-
-  splide.on('mounted move', () => {
-    const end = splide.Components.Controller.getEnd() + 1;
-    const ratio = (splide.index + 1) / end;
-    bar.style.width = `${100 * ratio}%`;
-  });
-
-  splide.mount();
-}
+});
