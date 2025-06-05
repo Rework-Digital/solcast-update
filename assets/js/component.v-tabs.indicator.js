@@ -1,3 +1,4 @@
+export default function initTabsIndicator() {
   const menu = document.querySelector(".v-tabs_menu");
 
   if (!menu) return;
@@ -35,3 +36,4 @@
 
   // Resize observer for responsiveness
   window.addEventListener("resize", updateIndicator);
+}
