@@ -23,4 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('.script_loader-counter')) {
     loadModule('component.counter.js', 'counter');
   }
+
+  if (document.querySelector('.component_verticle-tabs')) {
+    loadModule('component.v-tabs.indicator.js', 'v-tabs');
+  }
 });
+
+
+
