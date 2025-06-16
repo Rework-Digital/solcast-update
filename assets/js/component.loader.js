@@ -27,6 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('.component_verticle-tabs')) {
     loadModule('component.v-tabs.indicator.js', 'v-tabs');
   }
+
+  if (document.querySelector('.component_form-preselect')) {
+    loadModule('component.form-preselect.js', 'form preselect');
+  }
+
 });
 
 
