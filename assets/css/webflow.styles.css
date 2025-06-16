@@ -1,3 +1,4 @@
+<style>
 /* Scroll bar styling */
 * {
   scrollbar-width: auto;
@@ -235,8 +236,20 @@ Code by Liam Hammersley of Rework Digital (liam@reworkdigital.com.au)
     border-color: var(--border-color--border-tertiary) !important;
 }
 
+/* Nav Menu */
+
+.w-nav-overlay {
+	overflow: scroll;
+}
+
 .is--navCurrent {
     color: var(--link-color--link-primary) !important;
+}
+
+.nav_megamenu_card-item.about-us:before {
+	content: "";
+  width: 30%;
+	background: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgba(233, 247, 252, 1) 90%, rgba(233, 247, 252, 1) 100%);
 }
 
 .nav_dropdown-list {
@@ -246,7 +259,7 @@ Code by Liam Hammersley of Rework Digital (liam@reworkdigital.com.au)
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 990px) and (max-width: 1200px) {
   .nav_menu {
     position: static;
   }
@@ -936,3 +949,4 @@ img[style-image-object-fit="cover"] {
   opacity: 100%;
   font-size: 0.875rem;
 }
+</style>

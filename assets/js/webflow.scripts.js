@@ -88,53 +88,53 @@ window.statuspalWidget = {
   // serviceId: 1, // Optional - Display the status of only one service
 };
 
-/*--------------------------------------*/
-/* Dropdown Menu Resizer                */
-/*--------------------------------------*/
+// /*--------------------------------------*/
+// /* Dropdown Menu Resizer                */
+// /*--------------------------------------*/
 
-function updateDropdownMaxWidth(dropdown) {
-  if (!dropdown) return;
-  const rect = dropdown.getBoundingClientRect();
-  const leftOffset = rect.left;
-  dropdown.style.maxWidth = `calc(100vw - ${leftOffset}px)`;
-}
+// function updateDropdownMaxWidth(dropdown) {
+//   if (!dropdown) return;
+//   const rect = dropdown.getBoundingClientRect();
+//   const leftOffset = rect.left;
+//   dropdown.style.maxWidth = `calc(100vw - ${leftOffset}px)`;
+// }
 
-function shouldRunScript() {
-  return window.innerWidth >= 1200;
-}
+// function shouldRunScript() {
+//   return window.innerWidth >= 1200;
+// }
 
-function handleDropdownToggleClick(toggle) {
-  setTimeout(() => {
-    const parentDropdown = toggle.closest(".w-dropdown");
-    const dropdownList = parentDropdown?.querySelector(".w-dropdown-list");
+// function handleDropdownToggleClick(toggle) {
+//   setTimeout(() => {
+//     const parentDropdown = toggle.closest(".w-dropdown");
+//     const dropdownList = parentDropdown?.querySelector(".w-dropdown-list");
 
-    if (dropdownList && dropdownList.offsetParent !== null) {
-      updateDropdownMaxWidth(dropdownList);
-    }
-  }, 50);
-}
+//     if (dropdownList && dropdownList.offsetParent !== null) {
+//       updateDropdownMaxWidth(dropdownList);
+//     }
+//   }, 50);
+// }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const dropdownToggles = document.querySelectorAll(".nav_top-link.w-dropdown-toggle");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const dropdownToggles = document.querySelectorAll(".nav_top-link.w-dropdown-toggle");
 
-  dropdownToggles.forEach(toggle => {
-    toggle.addEventListener("click", () => {
-      if (shouldRunScript()) {
-        handleDropdownToggleClick(toggle);
-      }
-    });
-  });
+//   dropdownToggles.forEach(toggle => {
+//     toggle.addEventListener("click", () => {
+//       if (shouldRunScript()) {
+//         handleDropdownToggleClick(toggle);
+//       }
+//     });
+//   });
 
-  window.addEventListener("resize", () => {
-    if (!shouldRunScript()) return;
+//   window.addEventListener("resize", () => {
+//     if (!shouldRunScript()) return;
 
-    document.querySelectorAll(".w-dropdown-list").forEach(dropdown => {
-      if (dropdown.offsetParent !== null) {
-        updateDropdownMaxWidth(dropdown);
-      }
-    });
-  });
-});
+//     document.querySelectorAll(".w-dropdown-list").forEach(dropdown => {
+//       if (dropdown.offsetParent !== null) {
+//         updateDropdownMaxWidth(dropdown);
+//       }
+//     });
+//   });
+// });
 
 /*-----------------------------------------------------------------*/
 /* Function to check if any dropdown link matches the current page */
