@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (document.querySelector('.accuracy-tool-wrapper')) {
     loadModule('accuracy-tool.js', 'accuracy tool');
-    loadModule('mapbox-gl.js', 'mapbox-gl');
+    loadModule('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css', 'mapbox-gl');
   }
 
 });

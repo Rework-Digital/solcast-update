@@ -96,4 +96,3 @@ document.addEventListener('scroll', () => {
   const nav = document.querySelector('.nav_container');
   if (!nav) return;
   nav.classList.toggle('is-fixed', window.scrollY > 0);
-});
