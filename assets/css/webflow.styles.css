@@ -1,4 +1,6 @@
-<style>
+@import url(https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css);
+@import url(/static/assets/css/accuracy-tool.css);
+
 /* Scroll bar styling */
 * {
   scrollbar-width: auto;
@@ -949,4 +951,3 @@ img[style-image-object-fit="cover"] {
   opacity: 100%;
   font-size: 0.875rem;
 }
-</style>

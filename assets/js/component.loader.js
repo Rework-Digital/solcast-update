@@ -32,7 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.form-preselect.js', 'form preselect');
   }
 
+    if (document.querySelector('.accuracy-tool-wrapper')) {
+    loadModule('accuracy-tool.js', 'accuracy tool');
+    loadModule('mapbox-gl.js', 'mapbox-gl');
+  }
+
 });
-
-
-
