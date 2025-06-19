@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (document.querySelector('.component_verticle-tabs')) {
-    loadModule('component.v-tabs.indicator.js', 'v-tabs');
+    loadModule('component.v-tabs.indicator.js', 'vertice tabs');
   }
 
   if (document.querySelector('.component_form-preselect')) {
