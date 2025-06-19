@@ -1,15 +1,30 @@
 // component.loader.js
 document.addEventListener('DOMContentLoaded', () => {
   const loadModule = async (fileName, label) => {
-    const url = new URL(`./${fileName}`, import.meta.url);
     try {
+      const url = new URL(`./${fileName}`, import.meta.url);
       const module = await import(url);
       console.log(`[loader] ${label} module loaded from ${url}`);
       module.default?.();  // call the init function
-    }
-    catch (err) {
+    } catch (err) {
       console.error(`[loader] failed to load ${label}:`, err);
     }
+  };
+
+  const loadExternalScript = (src, label) => {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.onload = () => {
+        console.log(`[loader] ${label} external script loaded`);
+        resolve();
+      };
+      script.onerror = () => {
+        console.error(`[loader] failed to load external script: ${label}`);
+        reject();
+      };
+      document.head.appendChild(script);
+    });
   };
 
   if (document.querySelector('#slider_logoCarousel')) {
@@ -34,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (document.querySelector('.accuracy-tool-wrapper')) {
     loadModule('accuracy-tool.js', 'accuracy tool');
-    loadModule('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css', 'mapbox-gl');
+    loadExternalScript('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js', 'mapbox-gl');
   }
 
 });
