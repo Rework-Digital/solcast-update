@@ -1,5 +1,5 @@
 @import url(https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css);
-@import url(/static/assets/css/accuracy-tool.css);
+@import url(/accuracy-tool.css);
 
 /* Scroll bar styling */
 * {
