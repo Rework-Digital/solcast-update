@@ -746,6 +746,30 @@ table tbody tr:last-child td:last-child{
 }
 
 
+/* Pricing Styling */
+
+.pricing_product.is-active, .pricing_product:hover {
+	& .pricing_product-image-wrap {
+    padding: 0;
+  }
+  
+  & .pricing_product-image_img {
+    width: 3rem;
+  }  
+}
+
+.pricing_product.is-irr-data:hover, .pricing_product.is-irr-data.is-active {
+  & .pricing_product-image {
+    background-color: var(--brand-colours--solcast-yellow);
+  }
+}
+
+.pricing_product.is-energy-data:hover, .pricing_product.is-energy-data.is-active {
+  & .pricing_product-image {
+    background-color: var(--brand-colours--digi-green);
+  }
+}
+
 /* Custom Attribute Styling for Components */
 
 
