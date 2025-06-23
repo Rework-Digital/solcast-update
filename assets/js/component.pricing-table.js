@@ -1,67 +1,81 @@
-/*  component.pricingTabsIndicator.js
-   ------------------------------------------------------------ */
+// component.pricingTabsIndicator.js
 export default function initPricingTabsIndicator() {
-  const menu      = document.querySelector('.pricing_table_tab-menu');
-  const indicator = document.querySelector('.pricing_table-tabs-indicator');
-  if (!menu || !indicator) return;  // bail if not on page
+  const wrappers = document.querySelectorAll('.pricing_table-wrapper');
+  if (!wrappers.length) return;
 
-  /* ------------------------------------------------------------
-     core: move the indicator under a given <a>
-  ------------------------------------------------------------ */
-  const moveIndicator = (link) => {
-    if (!link) return;
-    const linkRect = link.getBoundingClientRect();
-    const menuRect = menu.getBoundingClientRect();
-    const offset   = linkRect.left - menuRect.left + menu.scrollLeft;
+  const instances = [];
 
-    indicator.style.width     = `${linkRect.width}px`;
-    indicator.style.transform = `translateX(${offset}px)`;
-  };
+  wrappers.forEach(wrap => {
+    const menu      = wrap.querySelector('.pricing_table_tab-menu');
+    const indicator = wrap.querySelector('.pricing_table-tabs-indicator');
+    if (!menu || !indicator) return;
 
-  /* ------------------------------------------------------------
-     1️⃣ set-up – place indicator inside menu for easy positioning
-  ------------------------------------------------------------ */
-  if (indicator.parentElement !== menu) menu.appendChild(indicator);
+    if (indicator.parentElement !== menu) menu.appendChild(indicator);
 
-  /* ------------------------------------------------------------
-     2️⃣ helper – find the tab that is actually active (.w--current)
-  ------------------------------------------------------------ */
-  const getActiveTab = () =>
-    menu.querySelector('.pricing_table_tab-link.w--current');
+    const links  = Array.from(menu.querySelectorAll('.pricing_table_tab-link'));
+    let cache    = [];
 
-  /* ------------------------------------------------------------
-     3️⃣ align on load
-  ------------------------------------------------------------ */
-  moveIndicator(getActiveTab());
+    const measure = () => {
+      const mRect = menu.getBoundingClientRect();
+      cache = links.map(l => {
+        const r = l.getBoundingClientRect();
+        return { link: l, w: r.width, x: r.left - mRect.left + menu.scrollLeft };
+      });
+    };
 
-  /* ------------------------------------------------------------
-     4️⃣ hover behaviour
-  ------------------------------------------------------------ */
-  menu.addEventListener('mouseenter', (e) => {
-    const link = e.target.closest('.pricing_table_tab-link');
-    if (link) moveIndicator(link);
-  }, true); // use capture so it fires as soon as link is entered
+    const move = ({ w, x }) =>
+      requestAnimationFrame(() => {
+        indicator.style.width     = `${w}px`;
+        indicator.style.transform = `translateX(${x}px)`;
+      });
 
-  menu.addEventListener('mouseover', (e) => {
-    const link = e.target.closest('.pricing_table_tab-link');
-    if (link) moveIndicator(link);
+    const active = () =>
+      cache.find(o => o.link.classList.contains('w--current')) || cache[0];
+
+    measure();
+    move(active());
+
+    menu.addEventListener(
+      'pointerenter',
+      e => {
+        const l = e.target.closest('.pricing_table_tab-link');
+        if (l) move(cache.find(o => o.link === l));
+      },
+      true
+    );
+    menu.addEventListener('pointerleave', () => move(active()));
+    menu.addEventListener('click', e => {
+      if (e.target.closest('.pricing_table_tab-link'))
+        setTimeout(() => move(active()), 0);
+    });
+    menu.addEventListener(
+      'scroll',
+      () => {
+        const mRect = menu.getBoundingClientRect();
+        cache.forEach(o => {
+          const r = o.link.getBoundingClientRect();
+          o.x = r.left - mRect.left + menu.scrollLeft;
+        });
+        move(active());
+      },
+      { passive: true }
+    );
+
+    instances.push({ measure, active, move });
   });
 
-  menu.addEventListener('mouseleave', () => {
-    moveIndicator(getActiveTab());   // snap back to the active tab
-  });
-
-  /* ------------------------------------------------------------
-     5️⃣ click handling – after Webflow swaps .w--current
-  ------------------------------------------------------------ */
-  menu.addEventListener('click', (e) => {
-    const link = e.target.closest('.pricing_table_tab-link');
-    if (!link) return;
-    setTimeout(() => moveIndicator(getActiveTab() || link), 10);
-  });
-
-  /* ------------------------------------------------------------
-     6️⃣ keep it correct on resize
-  ------------------------------------------------------------ */
-  window.addEventListener('resize', () => moveIndicator(getActiveTab()));
+  let rid;
+  window.addEventListener(
+    'resize',
+    () => {
+      clearTimeout(rid);
+      rid = setTimeout(() => {
+        instances.forEach(i => {
+          i.measure();
+          i.move(i.active());
+        });
+      }, 120);
+    },
+    { passive: true }
+  );
 }
