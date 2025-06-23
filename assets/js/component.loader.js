@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (document.querySelector('.pricing_table-tabs-indicator')) {
-    loadModule('component.pricingTabsIndicator.js', 'pricing tabs indicator');
+    loadModule('component.pricing-table.js', 'pricing tabs indicator');
   }
 
 
