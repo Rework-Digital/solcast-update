@@ -53,4 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('accuracy-tool.js', 'accuracy tool');
   }
 
+  if (document.querySelector('.pricing_table-tabs-indicator')) {
+    loadModule('component.pricingTabsIndicator.js', 'pricing tabs indicator');
+  }
+
+
 });
