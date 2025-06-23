@@ -57,5 +57,4 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.pricing-table.js', 'pricing tabs indicator');
   }
 
-
 });
