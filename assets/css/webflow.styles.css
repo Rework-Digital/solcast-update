@@ -1,6 +1,3 @@
-@import url(https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css);
-@import url(accuracy-tool.css);
-
 /* Scroll bar styling */
 * {
   scrollbar-width: auto;
@@ -237,45 +234,25 @@ Code by Liam Hammersley of Rework Digital (liam@reworkdigital.com.au)
 .border-color-tertiary {
     border-color: var(--border-color--border-tertiary) !important;
 }
-
 /* Nav Menu */
+
+.nav_container.is-fixed {
+  position: fixed;
+  box-shadow: 0 4px 10px 0px rgba(0, 0, 0, .05);
+}
 
 .w-nav-overlay {
 	overflow: scroll;
 }
 
-.is--navCurrent {
-    color: var(--link-color--link-primary) !important;
-}
-
 .nav_megamenu_card-item.about-us:before {
 	content: "";
   width: 30%;
-	background: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgba(233, 247, 252, 1) 90%, rgba(233, 247, 252, 1) 100%);
+  max-width: 15rem;
+	background: linear-gradient(90deg,rgba(233,247,252, -1) 0%, rgba(233, 247, 252, 0.2) 40%, rgba(233, 247, 252, 1) 100%);
 }
 
-.nav_dropdown-list {
-
-	& .nav_menu_link:hover {
-		background: var(--brand-colours--standstone-95);
-  }
-}
-
-@media screen and (min-width: 990px) and (max-width: 1200px) {
-  .nav_menu {
-    position: static;
-  }
-
-  .nav_top-link {
-    position: static;
-  }
-
-  .nav_megamenu-dropdown {
-    left: 0;
-    right: 0;
-    max-width: 100vw;
-  }
-}
+/*--------------------End of Nav Menu Updates ----------------------------*/
 
 .layout-first-item {
     order: -999;
@@ -745,7 +722,6 @@ table tbody tr:last-child td:last-child{
   font-size: 1.75rem;
 }
 
-
 /* Pricing Styling */
 
 .pricing_product.is-active, .pricing_product:hover {
@@ -838,6 +814,40 @@ img[style-image-object-fit="cover"] {
   }
 }
 
+/* Component - Text Rich Text */
+
+.text-rich-text a {
+	text-decoration: underline;
+}
+
+.text-rich-text.is-on-dark a {
+	color: #fff;
+}
+
+.ul-check-list ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.ul-check-list li {
+  position: relative;
+  padding-left: 2rem;
+  padding-bottom: 0.75em;
+}
+
+.ul-check-list li::before {
+  content: "";
+  position: absolute;
+  top: 0em;
+  left: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url('https://cdn.prod.website-files.com/68242bb27dd4563b37347a73/6858cb430331c6da9b1eedcf_check.avif');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 /* Component - Solar Data Product Styling */
 
 .solar-data-product_hover-wrapper a:first-child {
@@ -909,6 +919,14 @@ img[style-image-object-fit="cover"] {
   word-break: break-all;
 }
 
+/* Horizontal Tabs Styling */
+
+.tabs_link.w--current {
+	tabs_link-wrapper {
+	  border-bottom: 2px solid var(--border-color--border-dark-blue);
+  }
+}
+
 /* Verticle Tabs Styling */
 
 	.component_v-tabs.w-tabs:before, .component_v-tabs.w-tabs:after{
@@ -921,11 +939,7 @@ img[style-image-object-fit="cover"] {
 
   .tab-indicator {
     position: absolute;
-    background-color: var(--brand-colours--sky-blue-95);
-	  border-top-left-radius: 20px;
-	  border-bottom-left-radius: 20px;
-	  border-top-right-radius: 0;
-	  border-bottom-right-radius: 0;    
+    background-color: var(--brand-colours--sky-blue-95);  
     z-index: 0;
     transition: all 0.3s ease;
   }
