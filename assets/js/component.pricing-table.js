@@ -24,12 +24,10 @@ export default function initPricingTabsIndicator() {
     };
 
     const move = ({ w, x }) =>
-    requestAnimationFrame(() => {
-      const width = w * 0.8;
-      const offset = x + (w - width) / 2; // centres it within the tab link
-      indicator.style.width = `${width}px`;
-      indicator.style.transform = `translateX(${offset}px)`;
-    });
+      requestAnimationFrame(() => {
+        indicator.style.width     = `${w}px`;
+        indicator.style.transform = `translateX(${x}px)`;
+      });
 
     const active = () =>
       cache.find(o => o.link.classList.contains('w--current')) || cache[0];
