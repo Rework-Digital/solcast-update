@@ -746,6 +746,12 @@ table tbody tr:last-child td:last-child{
   }
 }
 
+.pricing_table_tab-menu::before {
+  content: '';
+  width: 100%;
+  background: red;
+}
+
 /* Custom Attribute Styling for Components */
 
 
