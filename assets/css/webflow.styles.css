@@ -234,25 +234,7 @@ Code by Liam Hammersley of Rework Digital (liam@reworkdigital.com.au)
 .border-color-tertiary {
     border-color: var(--border-color--border-tertiary) !important;
 }
-/* Nav Menu */
 
-.nav_container.is-fixed {
-  position: fixed;
-  box-shadow: 0 4px 10px 0px rgba(0, 0, 0, .05);
-}
-
-.w-nav-overlay {
-	overflow: scroll;
-}
-
-.nav_megamenu_card-item.about-us:before {
-	content: "";
-  width: 30%;
-  max-width: 15rem;
-	background: linear-gradient(90deg,rgba(233,247,252, -1) 0%, rgba(233, 247, 252, 0.2) 40%, rgba(233, 247, 252, 1) 100%);
-}
-
-/*--------------------End of Nav Menu Updates ----------------------------*/
 
 .layout-first-item {
     order: -999;
