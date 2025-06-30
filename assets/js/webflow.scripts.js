@@ -89,11 +89,105 @@ window.statuspalWidget = {
 };
 
 /*------------------------------*/
-/*       Nav Menu Sticky        */
+/*       Nav Menu        */
 /*------------------------------*/
 
-document.addEventListener('scroll', () => {
-  const nav = document.querySelector('.nav_container');
-  if (!nav) return;
-  nav.classList.toggle('is-fixed', window.scrollY > 0);
-})
+document.addEventListener('DOMContentLoaded', () => {
+  const MOBILE_BREAKPOINT = 991;
+  const isMobile = () => window.innerWidth <= MOBILE_BREAKPOINT;
+
+  const navMenu      = document.querySelector('.nav_menu');
+  const hamburger    = document.querySelector('.nav_button');
+  const links        = document.querySelectorAll('.nav_top-link-wrap[data-menu]');
+  const dropdowns    = document.querySelectorAll('.nav_megamenu_dropdown[data-menu]');
+  const backButtons  = document.querySelectorAll('.nav_back');
+  const closeButtons = document.querySelectorAll('.nav_close');
+
+  const closeAllMenus = () => {
+    document.documentElement.classList.remove('megamenu-lock');
+    links.forEach(link => link.classList.remove('is-active'));
+    dropdowns.forEach(dd => dd.classList.remove('is-open', 'is-slide-in', 'is-slide-out'));
+  };
+
+  const resetHamburger = () => {
+    hamburger?.click(); // simulate toggle if needed
+  };
+
+  const closeNavMenu = () => {
+    navMenu?.classList.remove('is-open');
+  };
+
+  const handleClose = () => {
+    closeAllMenus();
+    closeNavMenu();
+    resetHamburger();
+  };
+
+  // Top-level link click (mobile): open submenu
+  links.forEach(link => {
+    const key = link.dataset.menu;
+    const dropdown = [...dropdowns].find(dd => dd.dataset.menu === key);
+    if (!dropdown) return;
+
+    link.addEventListener('mouseenter', () => {
+      if (!isMobile()) {
+        closeAllMenus();
+        link.classList.add('is-active');
+        dropdown.classList.add('is-open');
+      }
+    });
+
+    dropdown.addEventListener('mouseleave', () => {
+      if (!isMobile()) closeAllMenus();
+    });
+
+    link.addEventListener('click', (e) => {
+      if (!isMobile()) return;
+      e.preventDefault();
+
+      closeAllMenus();
+      link.classList.add('is-active');
+      dropdown.classList.add('is-slide-in');
+      document.documentElement.classList.add('megamenu-lock');
+    });
+  });
+
+  // Back button: slide submenu out
+  backButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const submenu = btn.closest('.nav_megamenu_dropdown');
+      if (submenu) {
+        submenu.classList.remove('is-slide-in');
+        submenu.classList.add('is-slide-out');
+        setTimeout(() => submenu.classList.remove('is-slide-out'), 300);
+      }
+    });
+  });
+
+  // Close button: close everything
+  closeButtons.forEach(btn => {
+    btn.addEventListener('click', handleClose);
+  });
+
+  // Prevent submenu clicks from closing nav
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('click', e => e.stopPropagation());
+  });
+
+  // Escape and resize: close everything
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') handleClose();
+  });
+
+  window.addEventListener('resize', handleClose);
+
+  // ✅ When hamburger is clicked while open, close submenus
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      if (hamburger.classList.contains('w--open')) {
+        // Hamburger is open and clicked again → close submenus
+        closeAllMenus();
+      }
+    });
+  }
+});
