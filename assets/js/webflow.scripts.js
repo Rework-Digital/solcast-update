@@ -93,7 +93,7 @@ window.statuspalWidget = {
 /*------------------------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
-  const MOBILE_BREAKPOINT = 1100;
+  const MOBILE_BREAKPOINT = 991;
   const isMobile = () => window.innerWidth <= MOBILE_BREAKPOINT;
 
   const navMenu      = document.querySelector('.nav_menu');
