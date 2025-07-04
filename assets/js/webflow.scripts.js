@@ -89,7 +89,7 @@ window.statuspalWidget = {
 };
 
 /*------------------------------*/
-/*       Nav Menu        */
+/*       Nav Menu               */
 /*------------------------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -103,6 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const backButtons  = document.querySelectorAll('.nav_back');
   const closeButtons = document.querySelectorAll('.nav_close');
 
+  let previousIsMobile = isMobile();
+
   const closeAllMenus = () => {
     document.documentElement.classList.remove('megamenu-lock');
     links.forEach(link => link.classList.remove('is-active'));
@@ -110,7 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const resetHamburger = () => {
-    hamburger?.click(); // simulate toggle if needed
+    if (hamburger?.classList.contains('w--open')) {
+      hamburger.click(); // simulate toggle to close
+    }
   };
 
   const closeNavMenu = () => {
@@ -174,18 +178,24 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdown.addEventListener('click', e => e.stopPropagation());
   });
 
-  // Escape and resize: close everything
+  // Escape key: close everything
   window.addEventListener('keydown', e => {
     if (e.key === 'Escape') handleClose();
   });
 
-  window.addEventListener('resize', handleClose);
+  // Resize handling
+  window.addEventListener('resize', () => {
+    const currentIsMobile = isMobile();
+    if (currentIsMobile !== previousIsMobile) {
+      handleClose(); // Reset menus when crossing breakpoint
+      previousIsMobile = currentIsMobile;
+    }
+  });
 
-  // ✅ When hamburger is clicked while open, close submenus
+  // When hamburger is clicked while open, close submenus
   if (hamburger) {
     hamburger.addEventListener('click', () => {
       if (hamburger.classList.contains('w--open')) {
-        // Hamburger is open and clicked again → close submenus
         closeAllMenus();
       }
     });
