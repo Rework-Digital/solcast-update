@@ -798,6 +798,7 @@ img[style-image-object-fit="cover"] {
   visibility: hidden;
   transition: opacity 0.2s ease;
   z-index: 100;
+  position: absolute;
 }
 
 /* Show dropdown on desktop hover */
@@ -884,6 +885,15 @@ img[style-image-object-fit="cover"] {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Component - Sub Hero Banner */
+
+div[data-wf--section-hero-sub-page-hero--variant="base"] 
+  div[data-wf--title-text--variant="style---title"] {
+  color: var(--text-colour--text-cyan);
+}
+
 
 /* Component - Text Rich Text */
 
