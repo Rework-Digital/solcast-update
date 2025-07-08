@@ -89,7 +89,7 @@ window.statuspalWidget = {
 };
 
 /*------------------------------*/
-/*       Nav Menu               */
+/*         Nav Menu             */
 /*------------------------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -197,6 +197,32 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
       if (hamburger.classList.contains('w--open')) {
         closeAllMenus();
+      }
+    });
+  }
+});
+
+/*----------------------------------------------*/
+/*       Footer Newsletter Submit               */
+/*----------------------------------------------*/
+
+document.addEventListener('DOMContentLoaded', () => {
+  const subscribeButton = document.getElementById('footer_subscribe-submit');
+
+  if (subscribeButton) {
+    subscribeButton.addEventListener('click', () => {
+      const emailInput = document.querySelector('#footer_subscribe-email'); // Adjust the selector to match your actual input
+
+      if (emailInput && emailInput.value) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'subscribe_submit',
+          email: emailInput.value
+        });
+
+        console.log('[Subscribe] DataLayer event pushed:', emailInput.value);
+      } else {
+        console.warn('[Subscribe] Email input not found or empty');
       }
     });
   }

@@ -728,10 +728,22 @@ table tbody tr:last-child td:last-child{
   }
 }
 
-/* .pricing_table_tab-menu::before, .pricing_table_tab-menu::after {
-	content: '';
-  width: 10%;
-  background: var(--background-color--background-pricing-table);
+.pricing_table_tab-menu::after {
+	content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 10%,
+    #e6e5e5 10%,
+    #e6e5e5 90%,
+    transparent 90%,
+    transparent 100%
+  );
 } */
 
 /* Custom Attribute Styling for Components */
@@ -817,7 +829,7 @@ img[style-image-object-fit="cover"] {
     top: 4rem;
     left: 0;
     width: 100vw;
-    height: calc(100vh - 4rem);
+    height: calc(100svh - 4rem);
     transform: translateX(100%);
     transition: transform 0.3s ease;
     opacity: 1 !important;
@@ -896,6 +908,18 @@ div[data-wf--section-hero-sub-page-hero--variant="base"]
 
 
 /* Component - Text Rich Text */
+
+.text-rich-text a {
+  text-decoration: underline;
+}
+
+.text-rich-text.is-on-dark-blue a {
+	color: var(--text-colour--text-alternate);
+}
+
+.text-rich-text.is-on-dark-blue a:hover{
+	color: var(--link-color--link-primary-hover);
+}
 
 .ul-check-list ul {
   list-style: none;
