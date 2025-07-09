@@ -7,24 +7,33 @@ export default function initGTMTracking() {
   }
 
   trackedElements.forEach(element => {
-    const eventName = element.getAttribute('data-tracking-event-name')?.trim();
-
-    if (!eventName) {
-      console.warn('[GTM] Skipping element with no data-tracking-event-name:', element);
-      return;
-    }
-
-    console.log(`[GTM] Listener attached for event: "${eventName}"`);
-
     element.addEventListener('click', () => {
-      console.log(`[GTM] "${eventName}" triggered. Extracting data...`);
+      // Find the nearest parent with data-tracking-event-name
+      const formWrapper = element.closest('[data-tracking-event-name]');
+      const eventName = formWrapper?.getAttribute('data-tracking-event-name')?.trim();
 
-      const email = document.querySelector('input[name="email"]')?.value || '';
-      const phone = document.querySelector('input[name="phone"]')?.value || '';
+      if (!eventName) {
+        console.warn('[GTM] Could not find event name for element:', element);
+        return;
+      }
 
-      // Only include product if the select exists
-      const productSelect = document.querySelector('select[name="product"]');
-      const product = productSelect ? productSelect.value : undefined;
+      console.log(`[GTM] Event "${eventName}" triggered for tracked element`);
+
+      // Limit scope to the parent form
+      const scopedForm = element.closest('form');
+      if (!scopedForm) {
+        console.warn('[GTM] No form found for element:', element);
+        return;
+      }
+
+      // Extract scoped form values
+      const emailInput   = scopedForm.querySelector('input[name="email"]');
+      const phoneInput   = scopedForm.querySelector('input[name="phone"]');
+      const productSelect = scopedForm.querySelector('select[name="product"]');
+
+      const email   = emailInput?.value || '';
+      const phone   = phoneInput?.value || '';
+      const product = productSelect?.value || '';
 
       const dataLayerPayload = {
         event: eventName,
