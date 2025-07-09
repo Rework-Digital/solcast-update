@@ -15,17 +15,16 @@ export default function initGTMTracking() {
       const phoneInput = scopedForm.querySelector('input[name="phone"]');
       const productSelect = scopedForm.querySelector('select[name="product"]');
 
-      const email = emailInput?.value || '';
-      const phone = phoneInput?.value || '';
-      const product = productSelect?.value || '';
+      const emailAdr = emailInput?.value.trim() || '';
+      const phoneNo = phoneInput?.value.trim() || '';
+      const productType = productSelect?.value.trim() || '';
 
       const dataLayerPayload = {
         event: eventName,
-        email
+        email: emailAdr,
+        phone: phoneNo,
+        product: productType
       };
-
-      if (phone) dataLayerPayload.phone = phone;
-      if (product) dataLayerPayload.product = product;
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push(dataLayerPayload);
