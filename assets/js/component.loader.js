@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.form-preselect.js', 'form preselect');
   }
 
-  if (document.querySelector('[data-tracking="grm-enabled"]')) {
+  if (document.querySelector('[data-tracking="gtm-enabled"]')) {
     loadModule('component.gtm-tracking.js', 'GTM tracking');
   }
 
