@@ -10,9 +10,9 @@ export default function initGTMTracking() {
     console.log('[GTM] Click listener attached to:', link);
 
     link.addEventListener('click', () => {
-      const email = document.querySelector('input[name="Email"]')?.value || '';
-      const phone = document.querySelector('input[name="Phone"]')?.value || '';
-      const product = document.querySelector('input[name="Product"]')?.value || '';
+      const email = document.querySelector('input[name="email"]')?.value || '';
+      const phone = document.querySelector('input[name="phone"]')?.value || '';
+      const product = document.querySelector('input[name="product"]')?.value || '';
 
       if (!email && !phone && !product) {
         console.warn('[GTM] No form values found.');
