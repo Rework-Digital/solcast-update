@@ -1,17 +1,9 @@
 export default function initProductPreselect() {
   const productSelect = document.querySelector('select[data-preselect]');
-
-  if (!productSelect) {
-    console.warn('[formPreselect] No select element found with data-preselect attribute.');
-    return;
-  }
+  if (!productSelect) return;
 
   const preselectValue = productSelect.getAttribute('data-preselect');
-
-  if (!preselectValue) {
-    console.warn('[formPreselect] data-preselect attribute is empty.');
-    return;
-  }
+  if (!preselectValue) return;
 
   const matchingOption = Array.from(productSelect.options).find(
     (opt) => opt.value === preselectValue
@@ -19,8 +11,5 @@ export default function initProductPreselect() {
 
   if (matchingOption) {
     productSelect.value = preselectValue;
-    console.log(`[formPreselect] Preselected product: "${preselectValue}"`);
-  } else {
-    console.warn(`[formPreselect] No matching option for value: "${preselectValue}"`);
   }
 }
