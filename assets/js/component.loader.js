@@ -48,6 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.form-preselect.js', 'form preselect');
   }
 
+  if (document.querySelector('[data-tracking="product-cta-form"]')) {
+    loadModule('component.gtm-tracking.js', 'GTM tracking');
+  }
+
   if (document.querySelector('.accuracy-tool-wrapper')) {
     loadExternalScript('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js', 'mapbox-gl');
     loadModule('accuracy-tool.js', 'accuracy tool');
@@ -60,6 +64,5 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('.latest-world-map')) {
     loadModule('component.worldmap.js', 'latest world map');
   }
-
 
 });
