@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (document.querySelector('.script_loader-counter')) {
+    loadExternalScript('https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js', 'purecounter');
     loadModule('component.counter.js', 'counter');
   }
 
@@ -97,4 +98,5 @@ document.addEventListener('DOMContentLoaded', () => {
     loadExternalCSS('https://solcast.com/static/assets/css/mapbox-gradients.css', 'Mapbox Gradients');
     loadExternalCSS('https://solcast.com/static/assets/css/mapbox-styles.css', 'Mapbox Styles');
   }
+  
 });
