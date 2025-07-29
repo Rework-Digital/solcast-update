@@ -28,7 +28,8 @@ export default function matchHeaderHeights() {
 window.addEventListener('resize', matchHeaderHeights);
 
 
-// Pricing Tab Deep Link and Tab Indicator
+// Package Link Indicator
+// Updates and moves the underline under the package name in the tabs heading.
 
 window.Webflow ||= [];
 Webflow.push(function () {
