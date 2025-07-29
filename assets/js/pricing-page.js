@@ -1,29 +1,31 @@
 // Pricing Page Header Height. 
 // Adjusts the header of the pricing cards to be the same height.
 
-function matchHeaderHeights() {
-const headers = document.querySelectorAll('.pricing_pane-card_header');
+export default function matchHeaderHeights() {
+  const headers = document.querySelectorAll('.pricing_pane-card_header');
 
-if (!headers.length) return;
+  if (!headers.length) return;
 
-headers.forEach(header => header.style.height = 'auto');
+  // Reset heights first to account for responsive layout changes
+  headers.forEach(header => {
+    header.style.height = 'auto';
+  });
 
-let maxHeight = 0;
-headers.forEach(header => {
+  let maxHeight = 0;
+
+  headers.forEach(header => {
     const height = header.offsetHeight;
     if (height > maxHeight) {
-    maxHeight = height;
+      maxHeight = height;
     }
-});
+  });
 
-headers.forEach(header => {
+  headers.forEach(header => {
     header.style.height = `${maxHeight}px`;
-});
+  });
 }
 
-document.addEventListener("DOMContentLoaded", matchHeaderHeights);
-window.addEventListener("resize", matchHeaderHeights);
-
+window.addEventListener('resize', matchHeaderHeights);
 
 
 // Pricing Tab Deep Link and Tab Indicator
