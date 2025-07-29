@@ -78,10 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('accuracy-tool.js', 'accuracy tool');
   }
 
-  if (document.querySelector('.pricing_table-tabs-indicator')) {
-    loadModule('component.pricing-table.js', 'pricing tabs indicator');
-  }
-
   if (document.querySelector('.latest-world-map')) {
     loadModule('component.worldmap.js', 'latest world map');
   }
