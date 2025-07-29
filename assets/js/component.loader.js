@@ -98,5 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
     loadExternalCSS('https://solcast.com/static/assets/css/mapbox-gradients.css', 'Mapbox Gradients');
     loadExternalCSS('https://solcast.com/static/assets/css/mapbox-styles.css', 'Mapbox Styles');
   }
+
+  if (window.location.pathname.includes('/pricing/')) {
+   loadModule('pricing-page.js', 'pricing page');
+  }
+
   
 });
