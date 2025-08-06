@@ -1,7 +1,7 @@
 /* Scroll bar styling */
 * {
   scrollbar-width: auto;
-  scrollbar-color: var(--base-color-color--blue-200) var(--base-color-color--blue-100);
+  scrollbar-color: var(--brand-colours--cyber) var(--brand-colours--sky-blue-95);
 }
 
 /* Make text look crisper and more legible in all browsers */
@@ -744,7 +744,13 @@ table tbody tr:last-child td:last-child{
     transparent 90%,
     transparent 100%
   );
-} */
+} 
+
+/* Pricing Page Sky Blue CTA */
+
+.pricing-pane_cta-dnv_ups-wrap > .pricing-pane_cta-dnv_usp:last-child {
+	max-width: 38ch !important;
+}
 
 /* Custom Attribute Styling for Components */
 
@@ -1085,4 +1091,8 @@ div[data-wf--section-hero-sub-page-hero--variant="base"]
   background: var(--brand-colours--cyan);
   opacity: 100%;
   font-size: 0.875rem;
+}
+
+.form_select.is-on-dark option {
+  color: var(--brand-colours--black);
 }
