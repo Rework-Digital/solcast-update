@@ -10,18 +10,24 @@ export default function matchHeaderHeights() {
     const headers = pane.querySelectorAll('.pricing_pane-card_header');
     if (!headers.length) return;
 
-    // Reset first to avoid stacking height changes
-    headers.forEach(h => h.style.height = 'auto');
+    // Set an initial height so they don't flash from 0
+    headers.forEach(h => h.style.height = '200px');
 
-    // Find tallest in this pane
-    let maxHeight = 0;
-    headers.forEach(h => {
-      const hgt = h.offsetHeight;
-      if (hgt > maxHeight) maxHeight = hgt;
+    // Use requestAnimationFrame so the initial 200px renders, then recalc
+    requestAnimationFrame(() => {
+      // Reset to auto to measure correctly
+      headers.forEach(h => h.style.height = 'auto');
+
+      // Find tallest in this pane
+      let maxHeight = 0;
+      headers.forEach(h => {
+        const hgt = h.offsetHeight;
+        if (hgt > maxHeight) maxHeight = hgt;
+      });
+
+      // Apply calculated height
+      headers.forEach(h => h.style.height = `${maxHeight}px`);
     });
-
-    // Apply to only this pane's headers
-    headers.forEach(h => h.style.height = `${maxHeight}px`);
   });
 }
 
@@ -33,9 +39,15 @@ window.addEventListener('resize', matchHeaderHeights);
 document.addEventListener('click', e => {
   const tabLink = e.target.closest('.w-tab-link');
   if (tabLink) {
-    setTimeout(matchHeaderHeights, 50); // small delay so pane becomes visible
+    // Set initial height immediately
+    document.querySelectorAll('.pricing_pane-card_header').forEach(h => {
+      h.style.height = '200px';
+    });
+    // Then recalc after tab shows
+    setTimeout(matchHeaderHeights, 50);
   }
 });
+
 
 
 
