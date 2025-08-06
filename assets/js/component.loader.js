@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadExternalScript('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js', 'mapbox-gl');
     loadModule('mapbox.config.lta.js', 'mapbox-config');
     loadModule('mapboxSetup.js', 'mapbox-setup');
-    loadExternalCSS('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css', 'Mapbox CSS', 'e1659894ea52');
+    loadExternalCSS('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css', 'Mapbox CSS');
     loadExternalCSS('https://solcast.com/static/assets/css/mapbox-gradients.css', 'Mapbox Gradients');
     loadExternalCSS('https://solcast.com/static/assets/css/mapbox-styles.css', 'Mapbox Styles');
   }
