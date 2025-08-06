@@ -49,10 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   if (document.querySelector('#slider_logoCarousel')) {
+    loadExternalCSS('https://solcast.github.io/static/assets/css/splide-core.min.css', 'splide css');
+    loadExternalScript('https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js', 'splide core js');
+    loadExternalScript('https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll/dist/js/splide-extension-auto-scroll.min.js', 'splide scroll js');
     loadModule('component.logoCarousel.js', 'logoCarousel');
   }
 
   if (document.querySelector('.testimonial-slider_component')) {
+    loadExternalScript('https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js', 'swiper-bundle js');
+    loadExternalCSS('https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css', 'swiper-bundle css');
     loadModule('component.testimonial.js', 'testimonial');
   }
 
@@ -103,7 +108,5 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.location.pathname.includes('/search')) {
    loadModule('page.search.js', 'search page');
   }
-
-
   
 });
