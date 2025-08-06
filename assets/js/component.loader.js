@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.testimonial.js', 'testimonial');
   }
 
-  if (document.querySelector('.script_loader-counter')) {
+  if (document.querySelector('[data-script-loader="component-counter"]')) {
     loadExternalScript('https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js', 'purecounter');
     loadModule('component.counter.js', 'counter');
   }
