@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.gtm-tracking.js', 'GTM tracking');
   }
 
-  if (document.querySelector('.accuracy-tool-wrapper')) {
+  if (document.querySelector('[data-script-loader="accuracy-tool"]')) {
     loadExternalScript('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js', 'mapbox-gl');
     loadModule('accuracy-tool.js', 'accuracy tool');
   }
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.video-embed.js', 'video-embed');
   }
 
-  if (document.querySelector('.component-mapbox')) {
+  if (document.querySelector('[data-script-loader="component.mapbox"]'')) {
     loadExternalScript('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js', 'mapbox-gl');
     loadModule('mapbox.config.lta.js', 'mapbox-config');
     loadModule('mapboxSetup.js', 'mapbox-setup');
