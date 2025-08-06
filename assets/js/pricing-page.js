@@ -13,7 +13,7 @@ export default function matchHeaderHeights() {
     // Set an initial height so they don't flash from 0
     headers.forEach(h => h.style.height = '230px');
 
-    // Use requestAnimationFrame so the initial 200px renders, then recalc
+    // Use requestAnimationFrame so the initial 230px renders, then recalc
     requestAnimationFrame(() => {
       // Reset to auto to measure correctly
       headers.forEach(h => h.style.height = 'auto');
@@ -35,10 +35,17 @@ export default function matchHeaderHeights() {
 window.addEventListener('load', matchHeaderHeights);
 window.addEventListener('resize', matchHeaderHeights);
 
-// Also re-run when tabs change in Webflow
+// Also re-run when tabs change in Webflow + update URL hash
 document.addEventListener('click', e => {
   const tabLink = e.target.closest('.w-tab-link');
   if (tabLink) {
+    // Update URL hash without reloading
+    const tabName = tabLink.getAttribute('data-w-tab');
+    if (tabName) {
+      const newUrl = `${window.location.pathname}#${tabName}`;
+      history.replaceState(null, '', newUrl);
+    }
+
     // Set initial height immediately
     document.querySelectorAll('.pricing_pane-card_header').forEach(h => {
       h.style.height = '230px';
@@ -145,7 +152,7 @@ Webflow.push(function () {
     if (tabEl) {
       tabEl.click();
 
-      // Let Webflow update w--current, then recalculate indicator
+      // Let Webflow update w--current, then recalc indicator
       setTimeout(() => {
         document.querySelectorAll('.pricing_table-wrapper').forEach(wrap => {
           const menu = wrap.querySelector('.pricing_table_tab-menu');
