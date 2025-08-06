@@ -1,4 +1,4 @@
-// Pricing Page Header Height. 
+// ***** Pricing Page Header Height. ***** //
 // Adjusts the header of the pricing cards to be the same height.
 
 export default function matchHeaderHeights() {
@@ -49,7 +49,7 @@ document.addEventListener('click', e => {
 });
 
 
-// Package Link Indicator
+// ***** Package Link Indicator ***** //
 // Updates and moves the underline under the package name in the tabs heading.
 
 window.Webflow ||= [];
@@ -180,7 +180,7 @@ Webflow.push(function () {
 });
 
 
-//Update URL Based on Tab Selected
+// ***** Update URL Based on Tab Selected ***** // 
 
 export default function initPricingTabsHash() {
   // Listen for clicks on tab links
