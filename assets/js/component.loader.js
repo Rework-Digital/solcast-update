@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.worldmap.js', 'latest world map');
   }
 
-  if (document.querySelector('.section-banner-component-video_wrapper')) {
+  if (document.querySelector('[data-script-loader="component.video-embed"]')) {
     loadModule('component.video-embed.js', 'video-embed');
   }
 
