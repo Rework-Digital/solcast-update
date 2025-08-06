@@ -49,9 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   if (document.querySelector('#slider_logoCarousel')) {
-    loadExternalCSS('https://solcast.github.io/static/assets/css/splide-core.min.css', 'splide css');
     loadExternalScript('https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js', 'splide core js');
     loadExternalScript('https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll/dist/js/splide-extension-auto-scroll.min.js', 'splide scroll js');
+    loadExternalCSS('https://solcast.github.io/static/assets/css/splide-core.min.css', 'splide css');
     loadModule('component.logoCarousel.js', 'logoCarousel');
   }
 
