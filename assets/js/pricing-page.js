@@ -11,7 +11,7 @@ export default function matchHeaderHeights() {
     if (!headers.length) return;
 
     // Set an initial height so they don't flash from 0
-    headers.forEach(h => h.style.height = '200px');
+    headers.forEach(h => h.style.height = '230px');
 
     // Use requestAnimationFrame so the initial 200px renders, then recalc
     requestAnimationFrame(() => {
@@ -41,15 +41,12 @@ document.addEventListener('click', e => {
   if (tabLink) {
     // Set initial height immediately
     document.querySelectorAll('.pricing_pane-card_header').forEach(h => {
-      h.style.height = '200px';
+      h.style.height = '230px';
     });
     // Then recalc after tab shows
     setTimeout(matchHeaderHeights, 50);
   }
 });
-
-
-
 
 
 // Package Link Indicator
