@@ -178,3 +178,33 @@ Webflow.push(function () {
   // Re-run on hash change
   window.addEventListener('hashchange', changeTabAndMoveIndicator);
 });
+
+
+//Update URL Based on Tab Selected
+
+export default function initPricingTabsHash() {
+  // Listen for clicks on tab links
+  document.addEventListener('click', e => {
+    const tabLink = e.target.closest('.w-tab-link');
+    if (!tabLink) return;
+
+    const tabName = tabLink.getAttribute('data-w-tab');
+    if (!tabName) return;
+
+    // Update URL hash without reloading page
+    const newUrl = `${window.location.pathname}#${tabName}`;
+    history.replaceState(null, '', newUrl);
+  });
+
+  // Optional: auto-open the tab from hash on page load
+  const hash = window.location.hash.replace('#', '');
+  if (hash) {
+    const targetTab = document.querySelector(`.w-tab-link[data-w-tab="${hash}"]`);
+    if (targetTab) {
+      targetTab.click();
+    }
+  }
+}
+
+window.addEventListener('DOMContentLoaded', initPricingTabsHash);
+
