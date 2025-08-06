@@ -1,7 +1,7 @@
 /* Scroll bar styling */
 * {
   scrollbar-width: auto;
-  scrollbar-color: var(--brand-colours--cyber) var(--brand-colours--sky-blue-95);
+  scrollbar-color: var(--brand-colours--sky-blue) var(--brand-colours--sky-blue-95);
 }
 
 /* Make text look crisper and more legible in all browsers */
