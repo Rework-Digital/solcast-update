@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('accuracy-tool.js', 'accuracy tool');
   }
 
-  if (document.querySelector('.latest-world-map')) {
+  if (document.querySelector('[data-script-loader="component.worldmap"]')) {
     loadModule('component.worldmap.js', 'latest world map');
   }
 
