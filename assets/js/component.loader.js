@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.v-tabs.indicator.js', 'vertice tabs');
   }
 
-  if (document.querySelector('.component_form-preselect')) {
+  if (document.querySelector('form')) {
     loadModule('component.form-preselect.js', 'form preselect');
   }
 
