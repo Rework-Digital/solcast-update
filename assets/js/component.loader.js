@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.video-embed.js', 'video-embed');
   }
 
-  if (document.querySelector('.div-mapbox')) {
+  if (document.querySelector('.component-mapbox')) {
     loadExternalScript('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js', 'mapbox-gl');
     loadModule('mapbox.config.lta.js', 'mapbox-config');
     loadModule('mapboxSetup.js', 'mapbox-setup');
