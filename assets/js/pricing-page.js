@@ -2,30 +2,40 @@
 // Adjusts the header of the pricing cards to be the same height.
 
 export default function matchHeaderHeights() {
-  const headers = document.querySelectorAll('.pricing_pane-card_header');
+  // Select all tab content wrappers (adjust selector if different in your Webflow)
+  const tabContents = document.querySelectorAll('.w-tab-pane');
 
-  if (!headers.length) return;
+  if (!tabContents.length) return;
 
-  // Reset heights first to account for responsive layout changes
-  headers.forEach(header => {
-    header.style.height = 'auto';
-  });
+  tabContents.forEach(tab => {
+    const headers = tab.querySelectorAll('.pricing_pane-card_header');
+    if (!headers.length) return;
 
-  let maxHeight = 0;
+    // Reset heights in case of responsive changes
+    headers.forEach(header => {
+      header.style.height = 'auto';
+    });
 
-  headers.forEach(header => {
-    const height = header.offsetHeight;
-    if (height > maxHeight) {
-      maxHeight = height;
-    }
-  });
+    // Find tallest in this tab only
+    let maxHeight = 0;
+    headers.forEach(header => {
+      const height = header.offsetHeight;
+      if (height > maxHeight) {
+        maxHeight = height;
+      }
+    });
 
-  headers.forEach(header => {
-    header.style.height = `${maxHeight}px`;
+    // Apply tallest height to this tab's headers
+    headers.forEach(header => {
+      header.style.height = `${maxHeight}px`;
+    });
   });
 }
 
+// Run on load and resize
+window.addEventListener('load', matchHeaderHeights);
 window.addEventListener('resize', matchHeaderHeights);
+
 
 
 // Package Link Indicator
