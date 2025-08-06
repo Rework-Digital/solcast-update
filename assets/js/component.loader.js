@@ -96,8 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (window.location.pathname.includes('/pricing/')) {
-   loadModule('pricing-page.js', 'pricing page');
+   loadModule('page.pricing.js', 'pricing page');
   }
+
+  
+  if (window.location.pathname.includes('/pricing')) {
+   loadModule('page.search.js', 'search page');
+  }
+
 
   
 });
