@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   
-  if (window.location.pathname.includes('/pricing')) {
+  if (window.location.pathname.includes('/search')) {
    loadModule('page.search.js', 'search page');
   }
 
