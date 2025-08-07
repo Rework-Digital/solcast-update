@@ -91,6 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.video-embed.js', 'video-embed');
   }
 
+  if (document.querySelector('[data-script-loader="component.other-related-products"]')) {
+    loadModule('component.other-related-products.js', 'other related products');
+  }
+
+
   if (document.querySelector('[data-script-loader="component.mapbox"]')) {
     loadExternalScript('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js', 'mapbox-gl');
     loadModule('mapbox.config.lta.js', 'mapbox-config');
