@@ -99,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.graph.js', 'graph');
   }
 
-
   if (document.querySelector('[data-script-loader="component.mapbox"]')) {
     loadExternalScript('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js', 'mapbox-gl');
     loadModule('mapbox.config.lta.js', 'mapbox-config');
