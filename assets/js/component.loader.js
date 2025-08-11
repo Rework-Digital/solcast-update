@@ -95,6 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
     loadModule('component.other-related-products.js', 'other related products');
   }
 
+  if (document.querySelector('.embed-graph')) {
+    loadModule('component.graph.js', 'graph');
+  }
+
 
   if (document.querySelector('[data-script-loader="component.mapbox"]')) {
     loadExternalScript('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js', 'mapbox-gl');
