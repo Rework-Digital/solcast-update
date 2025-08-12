@@ -16,10 +16,20 @@ window.addEventListener('DOMContentLoaded', function () {
     input.value = value;
   });
 
-  // Check for utm_url input and populate with relative URL
+  // Check for utm_url input and populate with relative URL only if no UTM keys are present
   var utmUrlInput = document.getElementById('utm_url');
   if (utmUrlInput) {
-    var relativeUrl = window.location.pathname + window.location.search + window.location.hash;
-    utmUrlInput.value = relativeUrl;
+    // Check if any UTM keys have values in cookies
+    var hasUtmValues = utmKeys.some(function (key) {
+      return getCookieValue(key) !== null;
+    });
+
+    // Only populate utm_url if no UTM keys are present
+    if (!hasUtmValues) {
+      var relativeUrl = window.location.pathname + window.location.search + window.location.hash;
+      // Strip trailing question mark if present
+      relativeUrl = relativeUrl.replace(/\?$/, '');
+      utmUrlInput.value = relativeUrl;
+    }
   }
 }); 
