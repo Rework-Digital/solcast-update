@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
-    var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign, utm_form, utm_content'];
+    var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_form', 'utm_content'];
   
     function getCookieValue(name) {
       var match = document.cookie.match(new RegExp('(^|;\\s*)' + name + '=([^;]*)'));
