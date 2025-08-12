@@ -22,4 +22,4 @@ window.addEventListener('DOMContentLoaded', function () {
     var relativeUrl = window.location.pathname + window.location.search + window.location.hash;
     utmUrlInput.value = relativeUrl;
   }
-});
+}); 
