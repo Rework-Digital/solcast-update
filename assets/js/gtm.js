@@ -4,3 +4,24 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;var n=d.querySelector('[nonce]');
     n&&j.setAttribute('nonce',n.nonce||n.getAttribute('nonce'));f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-5DN8X5GS');
+
+
+
+
+/*----------------------------------------------*/
+/*          Data Attribute Cleanup              */
+/*----------------------------------------------*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all elements in the document
+    document.querySelectorAll('*').forEach(el => {
+      // Loop through a copy of attributes so we can safely remove while iterating
+      Array.from(el.attributes).forEach(attr => {
+        // Check if attribute name starts with "data-gtm" and has no value
+        if (attr.name.startsWith('data-gtm') && !attr.value.trim()) {
+          el.removeAttribute(attr.name);
+        }
+      });
+    });
+  });
+  
