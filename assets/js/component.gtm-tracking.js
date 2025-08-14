@@ -3,13 +3,18 @@ export default function initGTMTracking() {
   if (!trackedElements.length) return;
 
   trackedElements.forEach(element => {
-    element.addEventListener('click', () => {
+    element.addEventListener('click', (e) => {
+      const scopedForm = element.closest('form');
+      if (!scopedForm) return;
+
+      // If form is invalid, stop here
+      if (!scopedForm.checkValidity()) {
+        return; // Let browser show validation errors
+      }
+
       const formWrapper = element.closest('[data-tracking-event-name]');
       const eventName = formWrapper?.getAttribute('data-tracking-event-name')?.trim();
       if (!eventName) return;
-
-      const scopedForm = element.closest('form');
-      if (!scopedForm) return;
 
       const emailInput = scopedForm.querySelector('input[name="email"]');
       const phoneInput = scopedForm.querySelector('input[name="phone"]');
