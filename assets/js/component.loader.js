@@ -122,7 +122,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // ---------- Accuracy tool (Mapbox) ----------
   if (document.querySelector('[data-script-loader="accuracy-tool"]')) {
-    await loadExternalScript('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js', 'mapbox-gl');
+    await Promise.all([
+      loadExternalScript('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js', 'mapbox-gl'),
+      loadExternalCSS('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css', 'Mapbox CSS'),
+      loadExternalCSS('https://solcast.com/static/assets/css/accuracy-tool.css', 'Mapbox Gradients'),
+    ]);
     await loadModule('accuracy-tool.js', 'accuracy tool');
   }
 
