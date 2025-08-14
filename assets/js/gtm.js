@@ -6,10 +6,9 @@
     })(window,document,'script','dataLayer','GTM-5DN8X5GS');
 
 
-
-
 /*----------------------------------------------*/
-/*          Data Attribute Cleanup              */
+/*            Data Attribute Cleanup            */
+/*  Removes empty data-gtm attr. from elements  */
 /*----------------------------------------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
