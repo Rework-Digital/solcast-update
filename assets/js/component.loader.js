@@ -124,10 +124,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (document.querySelector('[data-script-loader="accuracy-tool"]')) {
     await Promise.all([
       loadExternalScript('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js', 'mapbox-gl'),
+      loadExternalCSS('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css', 'Mapbox CSS'),
+      loadExternalCSS('https://solcast.com/static/assets/css/accuracy-tool.css', 'Mapbox Gradients'),
     ]);
-    loadExternalCSS('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css', 'Mapbox CSS'),
-    loadExternalCSS('https://solcast.com/static/assets/css/accuracy-tool.css', 'Mapbox Gradients'),
     await loadModule('accuracy-tool.js', 'accuracy tool');
+  }
+
+  // ---------- Forcast Accuracy tool (Mapbox) ----------
+  if (document.querySelector('[data-script-loader="forecast-accuracy-tool"]')) {
+    await Promise.all([
+      loadExternalScript('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js', 'mapbox-gl'),
+      loadExternalCSS('https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css', 'Mapbox CSS'),
+      loadExternalCSS('https://solcast.com/static/assets/css/forecast-accuracy-tool.css', 'Mapbox Gradients'),
+    ]);
+    await loadModule('forecast-accuracy-tool.js', 'accuracy tool');
   }
 
   // ---------- Latest world map ----------
